@@ -5,7 +5,7 @@
       "templates/index.html",
       "templates/footer.html"
     ],
-    "dest": "temp/index.html"
+    "dest": "dist/index.html"
   },
   "about": {
     "src": [
@@ -13,6 +13,6 @@
       "templates/about.html",
       "templates/footer.html"
     ],
-    "dest": "temp/about.html"
+    "dest": "dist/about.html"
   }
 }

@@ -1,3 +1,9 @@
+This fork of <a href="https://github.com/use-init/init">init</a> is being largely modified to reflect my personal project organization. For more information, plesae refer to the original project. 
+
+
+# Original readme
+
+
 # <img src="http://rawgithub.com/use-init/init/master/logo.svg" alt="INIT" title="INIT" width="200">
 
 This project is based upon

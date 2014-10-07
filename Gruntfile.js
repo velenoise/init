@@ -53,11 +53,10 @@ module.exports = function (grunt) {
 		'replace:dev',
 		'clean:temp'
 	]);
-
+    
 	grunt.registerTask('pages:build', [
 		'concat',
 		'replace:build',
-		'clean:temp'
 	]);
 
 	/**
@@ -67,25 +66,25 @@ module.exports = function (grunt) {
 		'jshint',
 		'sass:dev',
 		'copy',
-		'requirejs',
+		'concat',
 		'pages:dev'
 	]);
 
 	// Default task
-	grunt.registerTask('default', ['dev']);
+	grunt.registerTask('default', ['build']);
 
 	/**
 	 * A task for building your pages
 	 */
 	grunt.registerTask('build', [
-		'jshint',
-		'modernizr',
+		//'jshint',
+		//'modernizr',
 		'sass:build',
 		'imagemin',
 		'copy',
-		'requirejs',
-		'karma:unit',
-		'pages:build'
+		//'karma:unit',
+		'pages:build',
+        'watch'
 	]);
 
 	/**
@@ -98,8 +97,8 @@ module.exports = function (grunt) {
 
 	// A task for testing production code
 	grunt.registerTask('test:build', [
-		'requirejs:compile',
-		'requirejs:prod',
+		//'requirejs:compile',
+		'concat:dist',
 		'karma:prod'
 	]);
 

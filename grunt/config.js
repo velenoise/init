@@ -12,13 +12,15 @@ module.exports = {
 		'<%= grunt.template.today("yyyy-mm-dd") %> */',
 
 	destDir: 'dist/',
+    
+    self: this,
 
 	requirejs: '../components/requirejs/require',
 
 	// All files that should be checked with JSHint
 	jsHintFiles: [
 		'Gruntfile.js',
-		'js/**/*.js',
+		'dev/js/**/*.js',
 		'test/*.js',
 		'test/specs/**/*.js'
 	],
@@ -28,29 +30,30 @@ module.exports = {
 		files: [
 			'js/**/*.js'
 		],
-		config: 'js/config.js',
-		dest: 'dist/<%= pkg.version %>/main.min.js'
+		config: 'dev/js/config.js',
+		dest: 'dist/main.min.js',
+		devDest: 'dev/main.js'
 	},
 
 	// Sass files
 	sass: {
 		files: [
-			'scss/**/*.scss'
+			'dev/scss/**/*.scss'
 		],
-		src: 'scss/main.scss',
-		devDest: 'css/main.css',
-		dest: 'dist/<%= pkg.version %>/main.min.css'
+		src: 'dev/scss/main.scss',
+		devDest: 'dev/css/main.css',
+		dest: 'dist/main.min.css'
 	},
 
 	// Modernizr files
 	modernizr: {
 		src: 'components/modernizr/modernizr.js',
-		dest: 'dist/<%= pkg.version %>/modernizr.min.js'
+		dest: 'dist/modernizr.min.js'
 	},
 
 	// Images
 	img: {
-		src: 'img/',
+		src: 'dev/img/',
 		dest: 'dist/img/'
 	},
 
@@ -62,19 +65,29 @@ module.exports = {
 	// Versioned references
 	replace: {
 		build: {
-			src: 'temp/**.html',
+			src: 'dev/**.html',
 			dest: 'dist/',
-			maincss: '<%= pkg.version %>/main.min.css',
-			modernizr: '<%= pkg.version %>/modernizr.min.js',
-			mainjs: '<script src="<%= pkg.version %>/main.min.js"></script>'
+			maincss: 'main.min.css',
+			modernizr: 'modernizr.min.js',
+			mainjs: '<script src="main.min.js"></script>'
 		},
 
 		dev: {
 			src: 'temp/**.html',
 			dest: '.',
-			maincss: 'css/main.css',
+			maincss: 'dev/css/main.css',
 			modernizr: 'components/modernizr/modernizr.js',
-			mainjs: '<script data-main="js/config" src="components/requirejs/require.js"></script>'
+			mainjs: '<script data-main="js/config" src="main.js"></script>'
 		}
-	}
+	},
+    
+    concat: {
+        js: {
+            options: {
+                footer: 'init();'
+            },
+          src: 'js/**/*.js',
+          dest: 'dist/main.min.js',
+        }
+    }
 };

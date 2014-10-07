@@ -6,7 +6,7 @@
 var config = require('../config');
 
 module.exports = {
-	compile: {
+	/*compile: {
 		options: {
 			mainConfigFile: config.js.config,
 			include: [config.requirejs],
@@ -32,5 +32,6 @@ module.exports = {
 			mainConfigFile: config.tests.config,
 			out: 'test/dist/tests.min.js'
 		}
-	}
+	}*/
+    
 };
