@@ -84,6 +84,7 @@ module.exports = function (grunt) {
 		'copy',
 		//'karma:unit',
 		'pages:build',
+        'serve',
         'watch'
 	]);
 

@@ -32,7 +32,7 @@ module.exports = {
 		],
 		config: 'dev/js/config.js',
 		dest: 'dist/main.min.js',
-		devDest: 'dev/main.js'
+		devDest: 'dev/js/main.js'
 	},
 
 	// Sass files
@@ -42,7 +42,7 @@ module.exports = {
 		],
 		src: 'dev/scss/main.scss',
 		devDest: 'dev/css/main.css',
-		dest: 'dist/main.min.css'
+		dest: 'dist/css/main.min.css'
 	},
 
 	// Modernizr files
@@ -67,9 +67,9 @@ module.exports = {
 		build: {
 			src: 'dev/**.html',
 			dest: 'dist/',
-			maincss: 'main.min.css',
+			maincss: 'css/main.min.css',
 			modernizr: 'modernizr.min.js',
-			mainjs: '<script src="main.min.js"></script>'
+			mainjs: '<script src="js/main.min.js"></script>'
 		},
 
 		dev: {
@@ -86,8 +86,13 @@ module.exports = {
             options: {
                 footer: 'init();'
             },
-          src: 'js/**/*.js',
+          src: 'dev/js/**/*.js',
           dest: 'dist/main.min.js',
         }
+    },
+    
+    serve: {
+        port: 9000,
+        path: './dist'
     }
 };
